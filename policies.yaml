@@ -1,0 +1,10 @@
+environments:
+  localhost:
+    blocked_tools:
+      - execute_shell_script # Prevent broad terminal access
+roles:
+  itinerary_specialist:
+    allowed_tools:
+      - search_places
+      - get_directions
+      - validate_itinerary

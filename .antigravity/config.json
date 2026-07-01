@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "mock-maps": {
+      "command": "python",
+      "args": ["mcp/mock_maps_server.py"]
+    }
+  }
+}
