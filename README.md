@@ -1,6 +1,12 @@
 # <img width="50" height="50" alt="logo" src="https://github.com/user-attachments/assets/6a17e535-3b68-4932-9fc3-7c423cb63b8d" /> Wayfinder - Agentic Travel Itinerary Planner
 A very basic agentic AI-based travel itinerary planner that matches user requirements, recommending places to stay and must-visit places listed out in a schedule, considering enough rest and less burnout. 
-Watch the demonstration for WayFinder Agent here: [Project-Pitch]()
+Watch the demonstration for WayFinder Agent here: [Project-Pitch](https://youtu.be/1bLBWglSTr0)
+
+<p align="center">
+  <a href="https://youtu.be/1bLBWglSTr0">
+    <img width="600" height="333" src="https://github.com/user-attachments/assets/786701ae-d6fb-4e4f-a1ec-628bdd16da86" alt="Watch the video" width="70%">
+  </a>
+</p>
 
 ## 📌 Problem Statement
 - **The Hassle of Travel Planning:** Traditional travel planning is tedious. Handling fragmented data across 10+ tabs, rigid static itineraries, and an inability to handle sudden real-time changes.
