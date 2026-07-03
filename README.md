@@ -39,7 +39,7 @@ The harness includes the following prospects:
 - Security aspects: Security is important so that the agent does not drift away or cross boundaries it must not. So we implement 5 major measures:
   1. **[Sandboxing](https://antigravity.google/docs/ide/settings#terminal-sandboxing)**: Enabling this feature in Antigravity IDE makes the whole execution isolated and does not pose problems to the original production or deployment sites.
   2. **[Policy Server](.agent/skills/itinerary-refiner/scripts/policy_server.py):** Performs the security and semantic safety checks, ensuring the LLM follows the safety policies.
-  3. **[Context Resolver](.agent/skills/itinerary-refiner/scripts/context_resolver.py):** Helps keep PII or Personally Identifiable Information like API keys, credentials, or even names to be replaced with environment variables for protection.
+  3. **[Context Resolver](.agent/skills/itinerary-refiner/scripts/context_resolver.py):** Helps keep PII or Personally Identifiable Information like API keys, credentials, or even names as environment variables for protection.
   4. **[Policies YAML](policies.yaml):** Defines structural gating by specifying exactly which tools are allowed for each role and environment to prevent unauthorized access.
   5. **[Vibe Diff MD](.agent/skills/itinerary-refiner/assets/vibe_diff.md):** Acts as a Human-In-The-Loop (HITL) checkpoint, translating complex code back into a plain-English summary, so I can verify the proposed execution matches my original intent before providing cryptographic consent.
 
@@ -64,7 +64,7 @@ To better explain how I've structured these three simple skills, here is an over
 
 #### 3. itinerary-refiner Skill:
 - Context Resolution: Run [context-resolver.py](.agent/skills/itinerary-refiner/scripts/context_resolver.py) to map accommodation and user preference locations to active session state.
-- Before calling any maps or calculation tools, invoke [](.agent/skills/itinerary-refiner/scripts/policy_server.py) to ensure the action is permitted under policies.yaml.
+- Before calling any maps or calculation tools, invoke [policy-server.py](.agent/skills/itinerary-refiner/scripts/policy_server.py) to ensure the action is permitted under policies.yaml.
 - Run [validate-updates.py](.agent/skills/itinerary-refiner/scripts/validate_updates.py) to check for violations of "Human-Centric Buffer Standards".
 - If a rule is violated, return the template from [conflict-message.md](.agent/skills/itinerary-refiner/assets/conflict_message.md).
 - For final itinerary commits, present the [vibe-diff.md](.agent/skills/itinerary-refiner/assets/vibe_diff.md) and wait for 'APPROVED' status.
@@ -90,10 +90,10 @@ But to analyze and summarize what I've done is to mend the wiring.
 
 ## 📊 Evaluation & Results
 Although I have this basic agent running, I found no reiterations to run. I have recorded a few demonstration videos for different user prompts:
-1. "I want to go on a trip to Lyon, France.": [Video - Lyon - 2 Day Trip - No Accommodation]()
-2. "I want to plan a trip to Paris for 2 days": [Video - Paris - 2 Day Trip - No Accommodation]()
-3. "I am having a few important meetings in the afternoon hours, so I would like the Eiffel Tower to be shifted to night.": [Video - Paris - 2 Day Trip - Refinement]()
-4. "Plan me a trip to Lyon. I am already accommodated at a hotel called 'Place des Terreaux'. Plan it for 4 days": [Video - Lyon - 4 Day Trip - With Accommodation]()
+1. "I want to go on a trip to Lyon, France.": [Video - Lyon - 2 Day Trip - No Accommodation](lyon-2d-no-acc.mp4)
+2. "I want to plan a trip to Paris for 2 days": [Video - Paris - 2 Day Trip - No Accommodation](paris-2d-no-acc.mp4)
+3. "I am having a few important meetings in the afternoon hours, so I would like the Eiffel Tower to be shifted to night.": [Video - Paris - 2 Day Trip - Refinement](paris-2d-refined.mp4)
+4. "Plan me a trip to Lyon. I am already accommodated at a hotel called 'Place des Terreaux'. Plan it for 4 days": [Video - Lyon - 4 Day Trip - With Accommodation](lyon-4d-with-acc)
 
 Although they take some time to analyze and provide results, the results they provide are pretty much considerable and perfectly aligned with my stated constraints. Here are two sample itineraries that my agent generated:
 - [Lyon-Trip-Itinerary](lyon_trip_itinerary.md)
